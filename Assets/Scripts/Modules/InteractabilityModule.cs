@@ -48,16 +48,6 @@ public class InteractabilityModule : GameModule
     private void OnTriggerExit2D(Collider2D collision)
     {
         NearestObject = null;
-    }
-
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        NearestObject = collision.gameObject;
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        NearestObject = null;
-    }
+    } 
 
 }

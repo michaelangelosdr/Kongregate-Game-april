@@ -8,7 +8,7 @@ public class MovementScript : GameModule
     Command moveDown = null;
     Command moveLeft = null;
     Command moveRight = null;
-
+    
     [SerializeField]
     PlayerStats stats;
 
