@@ -17,6 +17,8 @@ public class Idle : ActorState
     public override IEnumerator Start()
     {
 
+        yield return new WaitForSeconds(m_action.time);
+
         yield break;
     }
 
