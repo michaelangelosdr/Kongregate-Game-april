@@ -4,7 +4,7 @@ using UnityEngine;
 using System;
 
 
-[RequireComponent(typeof(BoxCollider2D))]
+[RequireComponent(typeof(CircleCollider2D))]
 [RequireComponent(typeof(Rigidbody2D))]
 public class Actor : ActorStateMachine
 {
