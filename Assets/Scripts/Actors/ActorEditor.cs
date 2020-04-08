@@ -11,10 +11,6 @@ public class ActorEditor : Editor
     {
         Actor ac = target as Actor;
 
-        //foreach(ActorAction a in ac.m_Actions)
-        //{
-        //    a.path.startPoint = Handles.PositionHandle(a.path.startPoint, Quaternion.identity);
-        //}
         for(int x=0;x<ac.m_Actions.Length;x++)
         {
             ac.m_Actions[x].path.startPoint = Handles.PositionHandle(ac.m_Actions[x].path.startPoint, Quaternion.identity);

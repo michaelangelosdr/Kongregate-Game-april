@@ -12,8 +12,6 @@ public class Enemy : Actor
     [SerializeField]
     public SightLine sight;
 
-
-    // Update is called once per frame
     void Update()
     {
         Vector3 aimDir = ((sightDirection.position - transform.position)).normalized;

@@ -15,9 +15,7 @@ public class SightLine : MonoBehaviour
     [SerializeField] private LayerMask layermask;
 
     private float StartAngle;
-    
 
-    // Start is called before the first frame update
     void Start()
     {
         mesh = new Mesh();
@@ -32,7 +30,6 @@ public class SightLine : MonoBehaviour
 
     }
 
-    // Update is called once per frame
     void Update()
     {
         float angle = StartAngle;
