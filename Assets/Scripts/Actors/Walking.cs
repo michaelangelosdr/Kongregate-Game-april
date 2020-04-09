@@ -24,7 +24,17 @@ public class Walking : ActorState
         });
 
         origPos = actor.transform.position;
-        LeanTween.move(actor.gameObject, path, m_action.time).setEase(LeanTweenType.easeInOutQuad);
+        if (actor.isLooping)
+        {
+            LeanTween.move(actor.gameObject, path, m_action.time).setEase(LeanTweenType.easeInOutQuad).setLoopPingPong(0);
+        }
+        else
+        {
+            LeanTween.move(actor.gameObject, path, m_action.time).setEase(LeanTweenType.easeInOutQuad);
+        }
+
+       
+       
         yield return new WaitForSeconds(m_action.time);
         actor.StartStateDone();
         yield break;

@@ -21,12 +21,12 @@ public class SightLine : MonoBehaviour
         mesh = new Mesh();
         GetComponent<MeshFilter>().mesh = mesh;
 
-        FOV = 90f;
+        //FOV = 90f;
       
         origin = Vector3.zero;
-        rayCount = 50;
+        //rayCount = 50;
       
-        viewDistance = 5f;
+        //viewDistance = 5f;
 
     }
 

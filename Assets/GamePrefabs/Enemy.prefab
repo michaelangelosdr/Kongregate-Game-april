@@ -137,10 +137,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16fa9cc9af9ae924ea186aa444a56c25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FOV: 0
+  FOV: 90
   origin: {x: 0, y: 0, z: 0}
-  rayCount: 0
-  viewDistance: 0
+  rayCount: 50
+  viewDistance: 5
   layermask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -310,9 +310,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ab6f456d6e59e44f9c3196b46342c60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLooping: 0
   m_Actions: []
   rb2: {fileID: 6482950616678699706}
+  isLooping: 0
   sightDirection: {fileID: 4360220155055999174}
   sightPosition: {fileID: 778893438}
   sight: {fileID: 4360220155240763845}

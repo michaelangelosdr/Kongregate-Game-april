@@ -9,8 +9,7 @@ public class ActorStateMachine : GameModule
 
     bool isChangingStates = false;
 
-    [SerializeField]
-    protected bool isLooping;
+   
 
 
     public void ChangeState(ActorState p_state)

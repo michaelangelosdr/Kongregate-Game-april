@@ -15,6 +15,9 @@ public class Actor : ActorStateMachine
     [SerializeField]
     public Rigidbody2D rb2;
 
+    [SerializeField]
+    public bool isLooping;
+
     private int currentStateIndex;
 
     private void Awake()
@@ -55,6 +58,7 @@ public class Actor : ActorStateMachine
 [Serializable]
 public struct ActorAction
 {
+ 
     public actorbehaviours behaviourtype;
     //public Vector3[] TargetPos; 
     public ActorSplinePath path;
