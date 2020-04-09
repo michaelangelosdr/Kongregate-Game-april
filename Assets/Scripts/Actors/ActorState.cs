@@ -29,9 +29,9 @@ public abstract class ActorState
         yield break;
     }
 
-    public virtual IEnumerator Refresh()
+    public virtual void Refresh()
     {
-        yield break;
+       
     }
 
     public virtual IEnumerator Exit()

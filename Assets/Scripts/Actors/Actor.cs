@@ -12,6 +12,9 @@ public class Actor : ActorStateMachine
     [SerializeField]
     public ActorAction[] m_Actions;
 
+    [SerializeField]
+    public Rigidbody2D rb2;
+
     private int currentStateIndex;
 
     private void Awake()

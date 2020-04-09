@@ -37,6 +37,7 @@ public class ActorStateMachine : GameModule
     {
         if(!isChangingStates)
         {
+          
             currentstate.Refresh();
         }
     }

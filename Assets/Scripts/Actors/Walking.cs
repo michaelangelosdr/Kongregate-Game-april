@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Walking : ActorState
 {
-
+    public Vector3 origPos;
     public Walking(Actor p_Actor) : base(p_Actor)
     {
         TimePerState = 0;
@@ -23,11 +23,25 @@ public class Walking : ActorState
             m_action.path.endPoint
         });
 
-
+        origPos = actor.transform.position;
         LeanTween.move(actor.gameObject, path, m_action.time).setEase(LeanTweenType.easeInOutQuad);
         yield return new WaitForSeconds(m_action.time);
         actor.StartStateDone();
         yield break;
+    }
+
+    public override void Refresh()
+    {
+
+        Vector3 moveDirection = actor.gameObject.transform.position - origPos;
+        if (moveDirection != Vector3.zero)
+        {
+            float angle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
+            actor.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        }
+
+
+        origPos = actor.transform.position;
     }
 
     public override IEnumerator Exit()

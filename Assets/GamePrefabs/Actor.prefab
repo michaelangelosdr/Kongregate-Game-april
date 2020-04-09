@@ -97,14 +97,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLooping: 0
-  m_Actions:
-  - behaviourtype: 0
-    path:
-      startPoint: {x: 0, y: 0, z: 0}
-      endPoint: {x: 1.5158126, y: 0.104067326, z: 0}
-      startControl: {x: 0, y: 0, z: 0}
-      endControl: {x: 1.05, y: -0.10859203, z: 0}
-    time: 0
+  m_Actions: []
+  rb2: {fileID: 4845337777553073223}
 --- !u!50 &4845337777553073223
 Rigidbody2D:
   serializedVersion: 4

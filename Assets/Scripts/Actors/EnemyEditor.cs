@@ -17,11 +17,11 @@ public class EnemyEditor : Editor
         //}
         for (int x = 0; x < ac.m_Actions.Length; x++)
         {
-            ac.m_Actions[x].path.startPoint = Handles.PositionHandle(ac.m_Actions[x].path.startPoint, Quaternion.identity);
+            ac.m_Actions[x].path.startPoint = Handles.DoPositionHandle(ac.m_Actions[x].path.startPoint, Quaternion.identity);
             ac.m_Actions[x].path.endPoint = Handles.PositionHandle(ac.m_Actions[x].path.endPoint, Quaternion.identity);
             ac.m_Actions[x].path.startControl = Handles.PositionHandle(ac.m_Actions[x].path.startControl, Quaternion.identity);
             ac.m_Actions[x].path.endControl = Handles.PositionHandle(ac.m_Actions[x].path.endControl, Quaternion.identity);
-
+          
             Handles.DrawBezier(ac.m_Actions[x].path.startPoint,
                 ac.m_Actions[x].path.endPoint,
                 ac.m_Actions[x].path.startControl,
