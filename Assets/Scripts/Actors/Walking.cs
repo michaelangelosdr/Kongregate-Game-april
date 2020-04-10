@@ -26,7 +26,7 @@ public class Walking : ActorState
         origPos = actor.transform.position;
         if (actor.isLooping)
         {
-            LeanTween.move(actor.gameObject, path, m_action.time).setEase(LeanTweenType.easeInOutQuad).setLoopPingPong(0);
+            LeanTween.move(actor.gameObject, path, m_action.time).setEase(LeanTweenType.easeInOutQuad).setLoopPingPong(-1);
         }
         else
         {

@@ -7,27 +7,35 @@ public class SightLine : MonoBehaviour
     Mesh mesh;
 
     [SerializeField] private float FOV;
-
     [SerializeField] private Vector3 origin;
     [SerializeField] private int rayCount;
     [SerializeField] private float viewDistance;
-
     [SerializeField] private LayerMask layermask;
 
+
+
+    [SerializeField] private Color startColor;
+    [SerializeField] private float colorChangeSpeed;
+    [SerializeField] private Color FinalColor;
+    [SerializeField] private Renderer renderer;
+
+    private Color Currentcolor;
+    private bool isPlayerHit;
+
     private float StartAngle;
+    private float starttime;
 
     void Start()
     {
         mesh = new Mesh();
         GetComponent<MeshFilter>().mesh = mesh;
-
-        //FOV = 90f;
-      
+        //FOV = 90f; 
         origin = Vector3.zero;
-        //rayCount = 50;
-      
+        //rayCount = 50; 
         //viewDistance = 5f;
-
+        isPlayerHit = false;
+        starttime = Time.time;
+     
     }
 
     void Update()
@@ -47,17 +55,24 @@ public class SightLine : MonoBehaviour
         for (int i = 0; i <= rayCount; i++)
         {
             Vector3 vertex;
-            RaycastHit2D hit = Physics2D.Raycast(origin, GetVectorFromAngle(angle), viewDistance,layermask);
+            RaycastHit2D hit = Physics2D.Raycast(origin, GetVectorFromAngle(angle), viewDistance, layermask);
 
             if (hit.collider == null)
             {
                 vertex = origin + GetVectorFromAngle(angle) * viewDistance;
 
-            }
+            }          
             else
             {
                 vertex = hit.point;
-              
+
+                if (hit.collider.CompareTag("Player"))
+                {
+                    Debug.Log("PLAYER HIT");
+                    isPlayerHit = true;
+                    float t = (Time.time - starttime) * colorChangeSpeed;
+                    renderer.material.color = Color.Lerp(startColor, FinalColor, t);
+                }
             }
             vertices[vertexIndex] = vertex;
             if (i > 0)
@@ -79,6 +94,9 @@ public class SightLine : MonoBehaviour
         mesh.vertices = vertices;
         mesh.uv = uv;
         mesh.triangles = triangles;
+
+
+    
 
     }
 
