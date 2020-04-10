@@ -12,7 +12,6 @@ public class MovementScript : GameModule
     [SerializeField]
     PlayerStats stats;
 
-  
     public void Awake()
     {
         moveUp = new MoveUp();
@@ -23,7 +22,7 @@ public class MovementScript : GameModule
 
     public override void Refresh()
     {
-        if (Input.GetKey(KeyCode.A)) { moveLeft.Execute(this.gameObject, stats.Speed); }
+        if (Input.GetKey(KeyCode.A)) { moveLeft.Execute(this.gameObject, stats.Speed);  }
         else if (Input.GetKey(KeyCode.D)) { moveRight.Execute(this.gameObject, stats.Speed); }
         if (Input.GetKey(KeyCode.W)) { moveUp.Execute(this.gameObject, stats.Speed); }
         else if (Input.GetKey(KeyCode.S)) { moveDown.Execute(this.gameObject, stats.Speed); }
