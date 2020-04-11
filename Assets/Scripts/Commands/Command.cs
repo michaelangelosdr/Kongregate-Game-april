@@ -17,6 +17,10 @@ public abstract class Command : MonoBehaviour
     {
         Debug.Log("Executed");
     }
+    public virtual void Execute(Rigidbody2D p_Rb, float p_speed)
+    {
+        Debug.Log("Executed");
+    }
 
     public virtual void Execute(IInteractable interactable) { }
 
