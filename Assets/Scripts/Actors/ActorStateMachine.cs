@@ -40,4 +40,14 @@ public class ActorStateMachine : GameModule
             currentstate.Refresh();
         }
     }
+
+    public override void onAwake()
+    {
+        
+    }
+
+    public override void onStart()
+    {
+      
+    }
 }

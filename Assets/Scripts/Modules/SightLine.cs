@@ -5,6 +5,7 @@ using UnityEngine;
 public class SightLine : MonoBehaviour
 {
     Mesh mesh;
+    MeshFilter mFilter;
 
     [SerializeField] private float FOV;
     [SerializeField] private Vector3 origin;
@@ -12,43 +13,59 @@ public class SightLine : MonoBehaviour
     [SerializeField] private float viewDistance;
     [SerializeField] private LayerMask layermask;
 
-
+    private Vector3[] vertices;
+    private Vector2[] uv;
+    private float angleIncrease;
 
     [SerializeField] private Color startColor;
     [SerializeField] private float colorChangeSpeed;
     [SerializeField] private Color FinalColor;
-    [SerializeField] private Renderer renderer;
+    [SerializeField] private Renderer _renderer;
 
     private Color Currentcolor;
     private bool isPlayerHit;
-
     private float StartAngle;
     private float starttime;
+   
 
-    void Start()
+    int[] triangles;
+
+    [SerializeField]
+    [Range(0,1f)]
+    private float colorLerpValue;
+
+    [SerializeField]
+    private int colorChangeTime;
+
+    private float _timeDelta;
+
+
+    private void Awake()
     {
         mesh = new Mesh();
-        GetComponent<MeshFilter>().mesh = mesh;
-        //FOV = 90f; 
-        origin = Vector3.zero;
-        //rayCount = 50; 
-        //viewDistance = 5f;
-        isPlayerHit = false;
-        starttime = Time.time;
-     
+        mFilter = GetComponent<MeshFilter>();
+        vertices = new Vector3[rayCount + 1 + 1]; 
+        uv = new Vector2[vertices.Length];
+        triangles = new int[rayCount * 3];
     }
 
+    void Start()
+    {       
+        mFilter.mesh = mesh;
+        origin = Vector3.zero;
+        isPlayerHit = false;
+        starttime = Time.time;
+        angleIncrease = FOV / rayCount;
+    }
+
+    public void Initialize()
+    {
+
+    }
+  
     void Update()
     {
-        float angle = StartAngle;
-        float angleIncrease = FOV/rayCount;
-
-        
-        Vector3[] vertices = new Vector3[rayCount + 1 + 1];
-        Vector2[] uv = new Vector2[vertices.Length];
-        int[] triangles = new int[rayCount * 3];
-
-
+        float angle = StartAngle;  
         vertices[0] = origin;
         int vertexIndex = 1;
         int triangleIndex = 0;
@@ -70,8 +87,7 @@ public class SightLine : MonoBehaviour
                 {
                     Debug.Log("PLAYER HIT");
                     isPlayerHit = true;
-                    float t = (Time.time - starttime) * colorChangeSpeed;
-                    renderer.material.color = Color.Lerp(startColor, FinalColor, t);
+                     
                 }
             }
             vertices[vertexIndex] = vertex;
@@ -90,15 +106,50 @@ public class SightLine : MonoBehaviour
 
         }
 
+        if(isPlayerHit)
+        {
+            if(_timeDelta<colorChangeTime)
+             _timeDelta += Time.deltaTime;
+        }
+        else
+        {
+            if (_timeDelta > 0) _timeDelta -= Time.deltaTime;
+            
+        }
 
+        
+
+        if (colorLerpValue <=1 && colorLerpValue >=0)
+        {
+            colorLerpValue = (1.0f / colorChangeTime) * _timeDelta;
+            if(colorLerpValue>1)
+            {
+                colorLerpValue = 1;
+                Debug.Log("Found!");
+            }
+            if (colorLerpValue < 0)
+            {
+                colorLerpValue = 0;
+            }
+
+
+        }
+
+        isPlayerHit = false;
+
+        DrawSightCone();
+   
+    }
+
+
+    private void DrawSightCone()
+    {
         mesh.vertices = vertices;
         mesh.uv = uv;
         mesh.triangles = triangles;
-
-
-    
-
+        _renderer.material.color = Color.LerpUnclamped(startColor, FinalColor, colorLerpValue);
     }
+
 
     public void SetOrigin(Vector3 origin)
     {
