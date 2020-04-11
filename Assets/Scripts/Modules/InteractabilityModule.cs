@@ -11,10 +11,16 @@ public class InteractabilityModule : GameModule
 
     private GameObject NearestObject;
 
-    private void Awake()
+    public override void onAwake()
     {
         Interactability = new InteractCommand();
     }
+
+    public override void onStart()
+    {
+       
+    }
+
 
     public override void Refresh()
     {
@@ -48,6 +54,7 @@ public class InteractabilityModule : GameModule
     private void OnTriggerExit2D(Collider2D collision)
     {
         NearestObject = null;
-    } 
+    }
+
 
 }

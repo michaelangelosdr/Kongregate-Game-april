@@ -10,14 +10,19 @@ public class MovementScript : GameModule
     Command moveRight = null;
     
     [SerializeField]
-    PlayerStats stats;
+    PlayerStats stats = null;
 
-    public void Awake()
+    public override void onAwake()
     {
         moveUp = new MoveUp();
         moveDown = new MoveDown();
         moveLeft = new MoveLeft();
         moveRight = new MoveRight();
+    }
+
+    public override void onStart()
+    {
+      
     }
 
     public override void Refresh()
