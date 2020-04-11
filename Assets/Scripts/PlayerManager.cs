@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
    
-
     [SerializeField]
     List<GameModule> Modules;
 

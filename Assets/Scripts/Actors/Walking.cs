@@ -31,9 +31,7 @@ public class Walking : ActorState
         else
         {
             LeanTween.move(actor.gameObject, path, m_action.time).setEase(LeanTweenType.easeInOutQuad);
-        }
-
-       
+        }       
        
         yield return new WaitForSeconds(m_action.time);
         actor.StartStateDone();

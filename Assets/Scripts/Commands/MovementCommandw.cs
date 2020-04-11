@@ -9,6 +9,10 @@ public class MoveUp:Command
     {
         p_object.transform.position += new Vector3(0, p_speed,0) * Time.deltaTime;
     }
+    public override void Execute(Rigidbody2D p_rb, float p_speed)
+    {
+        p_rb.MovePosition(p_rb.transform.position + (new Vector3(0, 1, 0)* p_speed * Time.deltaTime));
+    }
 
 }
 
@@ -18,6 +22,10 @@ public class MoveDown: Command
     {
         p_object.transform.position -= new Vector3(0, p_speed, 0) * Time.deltaTime;
     }
+    public override void Execute(Rigidbody2D p_rb, float p_speed)
+    {
+        p_rb.MovePosition(p_rb.transform.position - (new Vector3(0, 1, 0) * p_speed * Time.deltaTime));
+    }
 }
 
 public class MoveLeft: Command
@@ -26,7 +34,10 @@ public class MoveLeft: Command
     {
         p_object.transform.position -= new Vector3(p_speed, 0, 0) * Time.deltaTime;
     }
-
+    public override void Execute(Rigidbody2D p_rb, float p_speed)
+    {
+        p_rb.MovePosition(p_rb.transform.position - (new Vector3(1, 0, 0) * p_speed * Time.deltaTime));
+    }
 }
 
 public class MoveRight:Command
@@ -35,5 +46,40 @@ public class MoveRight:Command
     {
         p_object.transform.position += new Vector3(p_speed, 0, 0) * Time.deltaTime;
     }
+    public override void Execute(Rigidbody2D p_rb, float p_speed)
+    {
+        p_rb.MovePosition(p_rb.transform.position + (new Vector3(1, 0, 0) * p_speed * Time.deltaTime));
+    }
+}
 
+public class MoveRightUp:Command
+{
+    public override void Execute(Rigidbody2D p_rb, float p_speed)
+    {
+        p_rb.MovePosition(p_rb.transform.position + (new Vector3(1, 1, 0) * p_speed * Time.deltaTime));
+    }
+}
+
+public class MoveRightDown: Command
+{
+    public override void Execute(Rigidbody2D p_rb, float p_speed)
+    {
+        p_rb.MovePosition(p_rb.transform.position + (new Vector3(1, -1, 0) * p_speed * Time.deltaTime));
+    }
+}
+
+public class MoveLeftUp:Command
+{
+    public override void Execute(Rigidbody2D p_rb, float p_speed)
+    {
+        p_rb.MovePosition(p_rb.transform.position + (new Vector3(-1, 1, 0) * p_speed * Time.deltaTime));
+    }
+
+}
+public class MoveLeftDown:Command
+{
+    public override void Execute(Rigidbody2D p_rb, float p_speed)
+    {
+        p_rb.MovePosition(p_rb.transform.position - (new Vector3(1, 1, 0) * p_speed * Time.deltaTime));
+    }
 }
