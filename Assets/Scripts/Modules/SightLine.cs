@@ -87,7 +87,9 @@ public class SightLine : MonoBehaviour
                 {
                     Debug.Log("PLAYER HIT");
                     isPlayerHit = true;
-                     
+
+                    hit.collider.gameObject.GetComponent<StealthModule>().Found();
+
                 }
             }
             vertices[vertexIndex] = vertex;

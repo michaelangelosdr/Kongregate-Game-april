@@ -42,17 +42,22 @@ public class InteractabilityModule : GameModule
 
     private void OnTriggerStay2D(Collider2D collision)
     {
+        if (!collision.CompareTag("interactable")) return;
+
         NearestObject = collision.gameObject;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-       
+        if (!collision.CompareTag("interactable")) return;
+
         NearestObject = collision.gameObject;
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        if (!collision.CompareTag("interactable")) return;
+
         NearestObject = null;
     }
 
