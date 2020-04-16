@@ -72,9 +72,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 1, g: 0.89918447, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -96,9 +96,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50223be4cb425db42a6766adf9d99c07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLooping: 0
-  m_Actions: []
+  m_Actions:
+  - behaviourtype: 1
+    path:
+      startPoint: {x: -4.48, y: -1.45, z: 0}
+      endPoint: {x: 0, y: -2.3, z: 0}
+      startControl: {x: -3.14, y: -2.26, z: 0}
+      endControl: {x: 0, y: -2.3, z: 0}
+    time: 10
   rb2: {fileID: 4845337777553073223}
+  isLooping: 1
 --- !u!50 &4845337777553073223
 Rigidbody2D:
   serializedVersion: 4
