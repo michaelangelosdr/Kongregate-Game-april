@@ -39,6 +39,9 @@ public class SightLine : MonoBehaviour
 
     private float _timeDelta;
 
+    //For player detection
+    StealthModule mod;
+
 
     private void Awake()
     {
@@ -88,7 +91,12 @@ public class SightLine : MonoBehaviour
                     Debug.Log("PLAYER HIT");
                     isPlayerHit = true;
 
-                    hit.collider.gameObject.GetComponent<StealthModule>().Found();
+                    if(mod == null)
+                    {
+                        mod = hit.collider.gameObject.GetComponent<StealthModule>();
+                    }
+
+                    
 
                 }
             }
@@ -112,6 +120,8 @@ public class SightLine : MonoBehaviour
         {
             if(_timeDelta<colorChangeTime)
              _timeDelta += Time.deltaTime;
+
+            mod.Found();
         }
         else
         {

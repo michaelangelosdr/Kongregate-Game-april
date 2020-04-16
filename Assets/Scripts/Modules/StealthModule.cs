@@ -30,13 +30,16 @@ public class StealthModule : GameModule
     public override void Refresh()
     {
         //Debug.Log(StealthValue);
-        //stealthBarUI.SetStealthBarVal(StealthValue ," ");  
+        //stealthBarUI.SetStealthBarVal(StealthValue);  
+
+       
     }
 
     public void Found()
     {
-        StealthValue = StealthValue - (int)(Time.deltaTime * StealthValueMultiplier);
-        stealthBarUI.SetStealthBarVal(StealthValue);
+        if (StealthValue <= 1) return;
+        StealthValue -= (int)StealthValueMultiplier;
+        stealthBarUI.SetStealthBarVal(StealthValue,"Seen");
     }
     
 
