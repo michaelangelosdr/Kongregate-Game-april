@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Stealth Damager Object
   - interactable
+  - ProxiDoor
   layers:
   - Default
   - TransparentFX
