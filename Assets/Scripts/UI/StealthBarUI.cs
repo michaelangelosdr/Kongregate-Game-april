@@ -20,15 +20,14 @@ public class StealthBarUI : MonoBehaviour
     public void SetStealthBarVal(int p_Value)
     {
         m_StealthBarSlider.value = p_Value;
-        StartCoroutine(ShowInfo());
-        m_StealthBardFillImage.color = Color.LerpUnclamped(Endcolor, Startcolor,(100/p_Value));
+        m_StealthBardFillImage.color = Color.LerpUnclamped(Endcolor, Startcolor,(float)(p_Value/100f));
     }
 
     public void SetStealthBarVal(int p_Value, string p_InformationString)
     {
         m_StealthBarSlider.value = p_Value;
         StartCoroutine(ShowInfo(p_InformationString));
-        m_StealthBardFillImage.color = Color.LerpUnclamped(Endcolor, Startcolor, (100 / p_Value));
+        m_StealthBardFillImage.color = Color.LerpUnclamped(Endcolor, Startcolor, (float)(p_Value / 100f));
     }
 
     public IEnumerator ShowInfo(string info ="*beep*")

@@ -19,4 +19,25 @@ public class Enemy : Actor
         sight.SetOrigin(sightPosition.position);
         Refresh();
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("ProxiDoor"))
+        {
+            collision.GetComponent<ProximityDoor>().inProximity(true);
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("ProxiDoor"))
+        {
+            collision.GetComponent<ProximityDoor>().inProximity(false);
+        }
+    }
 }
