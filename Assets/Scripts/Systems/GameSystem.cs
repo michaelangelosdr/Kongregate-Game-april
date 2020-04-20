@@ -23,4 +23,8 @@ public class GameSystem : MonoBehaviour
     {
         Debug.Log("NO IMPLEMENTATION");
     }
+    public virtual void Refresh()
+    {
+
+    }
 }
