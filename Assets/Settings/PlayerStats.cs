@@ -9,4 +9,10 @@ public class PlayerStats : ScriptableObject
     [SerializeField]
     public float Speed;
 
+    [SerializeField]
+    public int GasValue;
+
+    [SerializeField]
+    public int Max_GasValue;
+
 }

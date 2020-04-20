@@ -15,6 +15,8 @@ public class DoorKey : MonoBehaviour, IInteractable
 
     public void Interact()
     {
+        if (door.keyCollected) return;
+
         door.keyCollected = true;
         AnimateKeyCollection();
     }

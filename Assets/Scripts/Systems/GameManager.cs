@@ -50,6 +50,15 @@ public class GameManager : Statemachine
         SetState(startingState);
     }
 
+    public void Update()
+    {
+
+        if (currentLevel == null) return;
+        currentLevel.Refresh();
+
+
+    }
+
     public void InitializeRoot()
     {
   

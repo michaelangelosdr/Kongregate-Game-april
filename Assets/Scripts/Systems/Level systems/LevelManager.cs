@@ -40,6 +40,14 @@ public class LevelManager : GameSystem
         m_exitsystem.onAwake();
     }
 
+    public override void Refresh()
+    {
+        foreach(LevelSystem s in systems)
+        {
+            s.Refresh();
+        }
+    }
+
     public void ExitEnable(bool isEnabled)
     {
         if(!m_exitsystem.gameObject.activeInHierarchy)
@@ -53,5 +61,11 @@ public class LevelManager : GameSystem
     public void ExitLevel()
     {
         m_manager.IncrementState();
+    }
+
+    public void LevelFailed()
+    {
+        //temporary
+        ExitLevel();
     }
 }

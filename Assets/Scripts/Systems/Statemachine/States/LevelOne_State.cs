@@ -14,7 +14,7 @@ public class LevelOne_State : GameState
        
       yield return m_manager.m_UImanager.FadeIn(0f);
         yield return m_manager.m_UImanager.SetText("Loading...",true);
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2f);
       yield return m_manager._LoadScene(1);
         // yield return new WaitForSeconds(1);
         yield return m_manager.m_UImanager.FadeOut(0.5f);
