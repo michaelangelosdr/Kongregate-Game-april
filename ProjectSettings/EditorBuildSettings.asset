@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/00-Root.unity
     guid: 7417fdda70195d345bfb9831bb68e58d
   - enabled: 1
-    path: Assets/Scenes/JBase-Design.unity
+    path: Assets/Scenes/Level-01.unity
     guid: 99145487b50dcd24ba4a3f3e57d69c6d
   m_configObjects: {}
