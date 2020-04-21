@@ -91,7 +91,7 @@ public class GasSystem : LevelSystem
     {       
         if(m_stats.GasValue >1)
         {
-            m_stats.GasValue -= 1;
+            m_stats.GasValue -= GasDepletionValue;
             m_UI.SetGasBar(m_stats.GasValue);
             return;
         }
