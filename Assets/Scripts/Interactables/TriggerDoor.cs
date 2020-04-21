@@ -6,7 +6,7 @@ public class TriggerDoor : Door
 {
     [SerializeField]
     SpriteRenderer button_renderer;
-
+    /*
     public override void Interact()
     {
         isOpened = !isOpened;
@@ -16,5 +16,5 @@ public class TriggerDoor : Door
 
         LeanTween.color(button_renderer.gameObject, Color.white, 0.3f); return;
     }
-
+    */
 }
