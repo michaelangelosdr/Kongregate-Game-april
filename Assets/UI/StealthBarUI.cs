@@ -33,12 +33,12 @@ public class StealthBarUI : MonoBehaviour
     public IEnumerator ShowInfo(string info ="*beep*")
     {
         m_StealthBarInfoLabel.text = info;
-        LeanTween.textColor(m_StealthBarInfoLabel.rectTransform, new Color(0, 0, 0, 0), 0);
+        LeanTween.textColor(m_StealthBarInfoLabel.rectTransform, new Color(255 , 255, 255, 0), 0);
 
-        LeanTween.textColor(m_StealthBarInfoLabel.rectTransform, Color.black, 0.25f);
+        LeanTween.textColor(m_StealthBarInfoLabel.rectTransform, Color.white, 0.25f);
         yield return new WaitForSeconds(2);
 
-        LeanTween.textColor(m_StealthBarInfoLabel.rectTransform, new Color(0, 0, 0, 0), 0.25f);
+        LeanTween.textColor(m_StealthBarInfoLabel.rectTransform, new Color(255, 255, 255, 0), 0.25f);
 
 
         yield break;
