@@ -110,6 +110,8 @@ public class SightLine : MonoBehaviour
                 triangles[triangleIndex + 2] = vertexIndex;
 
                 triangleIndex += 3;
+
+                Debug.Log("draw");
             }
             vertexIndex++;
             angle -= angleIncrease;
@@ -159,7 +161,9 @@ public class SightLine : MonoBehaviour
         mesh.vertices = vertices;
         mesh.uv = uv;
         mesh.triangles = triangles;
+       
         _renderer.material.color = Color.LerpUnclamped(startColor, FinalColor, colorLerpValue);
+        mesh.RecalculateBounds();
     }
 
 
