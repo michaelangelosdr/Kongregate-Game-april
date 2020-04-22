@@ -19,6 +19,9 @@ public class KeyDoor : Door
 
     public override void Interact()
     {
+
+        if (isOpening) return;
+
         if(keyCollected)
         {
             isOpened = !isOpened;
@@ -40,9 +43,9 @@ public class KeyDoor : Door
     private IEnumerator LockDoorAnimation()
     {
         LeanTween.color(_renderer.gameObject, Color.gray, 0.2f);
-         LeanTween.rotate(DoorPivot, new Vector3(0, 0, 2), 0.2f);
+        // LeanTween.rotate(DoorPivot, new Vector3(0, 0, 2), 0.2f);
         yield return new WaitForSeconds(0.2f);
-        LeanTween.rotate(DoorPivot, new Vector3(0, 0, 0), 0.2f);
+       // LeanTween.rotate(DoorPivot, new Vector3(0, 0, 0), 0.2f);
         LeanTween.color(_renderer.gameObject, Color.white, 0.2f);
     }
 

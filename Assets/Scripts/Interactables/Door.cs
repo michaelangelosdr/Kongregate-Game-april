@@ -17,7 +17,7 @@ public class Door : MonoBehaviour, IInteractable
     [SerializeField]
     protected bool isOpened;
 
-    private bool isOpening;
+    protected bool isOpening;
 
     public virtual void Interact()
     {
