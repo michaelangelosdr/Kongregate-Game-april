@@ -16,4 +16,9 @@ public abstract class LevelSystem : MonoBehaviour
     {
 
     }
+
+    public virtual void Refresh()
+    {
+        return;
+    }
 }

@@ -8,4 +8,6 @@ public class InteractCommand : Command
     {
         interactable.Interact();
     }
+
+    
 }

@@ -17,8 +17,12 @@ public class Door : MonoBehaviour, IInteractable
     [SerializeField]
     protected bool isOpened;
 
+    private bool isOpening;
+
     public virtual void Interact()
     {
+        if (isOpening) return;
+
         isOpened = !isOpened;
         OpenDoor();
     }
@@ -30,13 +34,17 @@ public class Door : MonoBehaviour, IInteractable
 
     public virtual void OpenDoor()
     {
+        isOpening = true;
        if(isOpened)
         {
-            LeanTween.rotateLocal(DoorPivot, new Vector3(0,0,90), DoorOpenTime).setEaseInSine();
+            //LeanTween.rotateLocal(DoorPivot, new Vector3(0,0,90), DoorOpenTime).setEaseInSine().setOnComplete(()=> { isOpening = false; });
+            LeanTween.moveLocal(_renderer.gameObject,new Vector2(0,1f),DoorOpenTime).setEaseInSine().setOnComplete(() => { isOpening = false; });
+           
         }
        else
         {
-            LeanTween.rotateLocal(DoorPivot, new Vector3(0, 0, 0), DoorOpenTime).setEaseInSine();
+            //LeanTween.rotateLocal(DoorPivot, new Vector3(0, 0, 0), DoorOpenTime).setEaseInSine().setOnComplete(() => { isOpening = false; });
+            LeanTween.moveLocal(_renderer.gameObject, new Vector2(0, -0.5f), DoorOpenTime).setEaseInSine().setOnComplete(() => { isOpening = false; });
         }
     }
 }

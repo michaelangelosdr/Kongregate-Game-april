@@ -32,6 +32,14 @@ public class InteractabilityModule : GameModule
             Interactability.Execute(m_Object.GetComponent<IInteractable>());
 
         }
+
+        if(Input.GetKey(KeyCode.E))
+        {
+            var m_Object = GetNearestGameObject();
+            if (m_Object == null) return;
+            Interactability.Execute(m_Object.GetComponent<IInteractable>());
+        }
+       
     }
 
 
