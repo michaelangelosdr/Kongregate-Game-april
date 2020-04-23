@@ -4089,6 +4089,31 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1156784538 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4554542745295498307, guid: efa0344d9b141494cad4fc972572b7ff,
+    type: 3}
+  m_PrefabInstance: {fileID: 1529360025}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1156784541
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1156784538}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 304e3fbb8aaed6a4ea7bbd233fb23618, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1162397772
 GameObject:
   m_ObjectHideFlags: 0
@@ -6234,27 +6259,27 @@ PrefabInstance:
     - target: {fileID: 4554542745295498306, guid: efa0344d9b141494cad4fc972572b7ff,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.0864382
+      value: 0.39097765
       objectReference: {fileID: 0}
     - target: {fileID: 4554542745295498306, guid: efa0344d9b141494cad4fc972572b7ff,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 2.0864382
+      value: 0.39097765
       objectReference: {fileID: 0}
     - target: {fileID: 4554542745295498306, guid: efa0344d9b141494cad4fc972572b7ff,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 2.0864382
+      value: 0.39097765
       objectReference: {fileID: 0}
     - target: {fileID: 4554542745295498306, guid: efa0344d9b141494cad4fc972572b7ff,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.0000000095093
       objectReference: {fileID: 0}
     - target: {fileID: 4554542745295498306, guid: efa0344d9b141494cad4fc972572b7ff,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.000000038037
       objectReference: {fileID: 0}
     - target: {fileID: 4554542745295498309, guid: efa0344d9b141494cad4fc972572b7ff,
         type: 3}
@@ -7934,6 +7959,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5420210080283065870, guid: 19550b5f3b434ff478340913df7fe737,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5420210080680875044, guid: 19550b5f3b434ff478340913df7fe737,
         type: 3}
       propertyPath: m_LocalPosition.x
